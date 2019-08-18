@@ -1,0 +1,25 @@
+.calculator {
+  background: black;
+  padding: 1rem;
+  display: flex;
+  flex-flow: wrap;
+  align-content: space-between;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.calculator__screen {
+  background: #ffffff;
+  width: 100%;
+  font-size: 4rem;
+  text-align: right;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.calculator__button {
+  width: 25%;
+  font-size: 2rem;
+  padding: 1rem 0;
+}
