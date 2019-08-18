@@ -2,35 +2,41 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-const App = () => {
-  const selected = useState(null);
+class App extends React.Component {
+  state = {
+    selected: null
+  };
 
-  const clear = () => {};
+  clear = () => {
+    this.setState({ selected: null });
+  };
 
-  const deleteLast = () => {};
+  deleteLast = () => {};
 
-  const update = () => {};
+  update = () => {};
 
-  const calculate = () => {};
+  calculate = () => {};
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    );
+  }
+}
 
 export default App;

@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import App from "./App";
 
 it("should render without crashing", () => {
@@ -11,11 +11,12 @@ it("should render without crashing", () => {
 describe("main functions", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = mount(<App />);
   });
+
   describe("clear", () => {
-    it("should clear state", () => {
-      wrapper.setState({
+    it("should clear val passed to display", () => {
+      wrapper.instance().setState({
         selected: "1+1"
       });
 
