@@ -1,8 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const selected = useState(null);
+
+  const clear = () => {};
+
+  const deleteLast = () => {};
+
+  const update = () => {};
+
+  const calculate = () => {};
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +31,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
