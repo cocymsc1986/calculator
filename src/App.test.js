@@ -15,18 +15,38 @@ describe("main functions", () => {
   });
 
   describe("clear", () => {
-    it("should clear val passed to display", () => {
+    it("should do nothing if no selected state", () => {
+      wrapper.instance().setState({
+        selected: ""
+      });
+
+      wrapper.instance().clear();
+
+      expect(wrapper.state("selected")).toBe("");
+    });
+
+    it("should clear selected stated", () => {
       wrapper.instance().setState({
         selected: "1+1"
       });
 
       wrapper.instance().clear();
 
-      expect(wrapper.state("selected")).toBe(null);
+      expect(wrapper.state("selected")).toBe("");
     });
   });
 
   describe("deleteLast", () => {
+    it("should do nothing if no selected state", () => {
+      wrapper.instance().setState({
+        selected: ""
+      });
+
+      wrapper.instance().clear();
+
+      expect(wrapper.state("selected")).toBe("");
+    });
+
     it("should delete last character in state", () => {
       wrapper.setState({
         selected: "1+1"
@@ -39,6 +59,16 @@ describe("main functions", () => {
   });
 
   describe("update", () => {
+    it("should do nothing if no selected state", () => {
+      wrapper.instance().setState({
+        selected: ""
+      });
+
+      wrapper.instance().clear();
+
+      expect(wrapper.state("selected")).toBe("");
+    });
+
     it("should add value to state", () => {
       wrapper.setState({
         selected: "1+"
@@ -51,6 +81,16 @@ describe("main functions", () => {
   });
 
   describe("calculate", () => {
+    it("should do nothing if no selected state", () => {
+      wrapper.instance().setState({
+        selected: ""
+      });
+
+      wrapper.instance().clear();
+
+      expect(wrapper.state("selected")).toBe("");
+    });
+
     it("should calculate string in state and return sum for addition", () => {
       wrapper.setState({
         selected: "1+1"
