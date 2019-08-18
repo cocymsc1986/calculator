@@ -1,17 +1,22 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
+
+import CalculatorView from "./CalculatorView";
 
 class App extends React.Component {
   state = {
-    selected: null
+    selected: ""
   };
 
   clear = () => {
-    this.setState({ selected: null });
+    if (this.state.selected.length === 0) return;
+
+    this.setState({ selected: "" });
   };
 
   deleteLast = () => {
+    if (this.state.selected.length === 0) return;
+
     this.setState(state => ({
       selected: state.selected.substring(0, state.selected.length - 1)
     }));
@@ -19,6 +24,7 @@ class App extends React.Component {
 
   update = e => {
     if (!e) return;
+
     const value = e.target.value;
 
     this.setState(state => ({
@@ -27,7 +33,7 @@ class App extends React.Component {
   };
 
   calculate = () => {
-    if (!this.state.selected) return;
+    if (this.state.selected.length === 0) return;
 
     // noted eval has security risks but can be sure of input in this
     // case, as it is determined purely on the button presses from within app
@@ -38,20 +44,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <CalculatorView
+          onRegularClick={this.update}
+          onClearClick={this.clear}
+          onCEClick={this.deleteLast}
+          onSumClick={this.calculate}
+        />
       </div>
     );
   }
