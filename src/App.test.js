@@ -44,7 +44,7 @@ describe("main functions", () => {
         selected: "1+"
       });
 
-      wrapper.instance().add({ target: { value: "1" } });
+      wrapper.instance().update({ target: { value: "1" } });
 
       expect(wrapper.state("selected")).toBe("1+1");
     });

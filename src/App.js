@@ -11,11 +11,29 @@ class App extends React.Component {
     this.setState({ selected: null });
   };
 
-  deleteLast = () => {};
+  deleteLast = () => {
+    this.setState(state => ({
+      selected: state.selected.substring(0, state.selected.length - 1)
+    }));
+  };
 
-  update = () => {};
+  update = e => {
+    if (!e) return;
+    const value = e.target.value;
 
-  calculate = () => {};
+    this.setState(state => ({
+      selected: `${state.selected}${value}`
+    }));
+  };
+
+  calculate = () => {
+    if (!this.state.selected) return;
+
+    // noted eval has security risks but can be sure of input in this
+    // case, as it is determined purely on the button presses from within app
+    /* eslint-disable-next-line */
+    return eval(this.state.selected);
+  };
 
   render() {
     return (
