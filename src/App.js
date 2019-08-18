@@ -5,13 +5,14 @@ import CalculatorView from "./CalculatorView";
 
 class App extends React.Component {
   state = {
-    selected: ""
+    selected: "",
+    sum: 0
   };
 
   clear = () => {
     if (this.state.selected.length === 0) return;
 
-    this.setState({ selected: "" });
+    this.setState({ selected: "", sum: 0 });
   };
 
   deleteLast = () => {
@@ -38,10 +39,17 @@ class App extends React.Component {
     // noted eval has security risks but can be sure of input in this
     // case, as it is determined purely on the button presses from within app
     /* eslint-disable-next-line */
-    return eval(this.state.selected);
+    const sum = eval(this.state.selected);
+
+    this.setState({
+      selected: `${sum}`,
+      sum: `${sum}`
+    });
   };
 
   render() {
+    const selected = this.state.selected === "" ? 0 : this.state.selected;
+
     return (
       <div className="App">
         <CalculatorView
@@ -49,6 +57,7 @@ class App extends React.Component {
           onClearClick={this.clear}
           onCEClick={this.deleteLast}
           onSumClick={this.calculate}
+          selected={selected}
         />
       </div>
     );
