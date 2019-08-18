@@ -91,44 +91,48 @@ describe("main functions", () => {
       expect(wrapper.state("selected")).toBe("");
     });
 
-    it("should calculate string in state and return sum for addition", () => {
+    it("should calculate string in state and update sum state for addition", () => {
       wrapper.setState({
         selected: "1+1"
       });
 
-      const result = wrapper.instance().calculate();
+      wrapper.instance().calculate();
 
-      expect(result).toBe(2);
+      expect(wrapper.state("sum")).toBe("2");
+      expect(wrapper.state("selected")).toBe("2");
     });
 
-    it("should calculate string in state and return sum for subtraction", () => {
+    it("should calculate string in state and update sum state for subtraction", () => {
       wrapper.setState({
         selected: "2-1"
       });
 
-      const result = wrapper.instance().calculate();
+      wrapper.instance().calculate();
 
-      expect(result).toBe(1);
+      expect(wrapper.state("sum")).toBe("1");
+      expect(wrapper.state("selected")).toBe("1");
     });
 
-    it("should calculate string in state and return sum for multiplication", () => {
+    it("should calculate string in state and update sum state for multiplication", () => {
       wrapper.setState({
         selected: "2*2"
       });
 
-      const result = wrapper.instance().calculate();
+      wrapper.instance().calculate();
 
-      expect(result).toBe(4);
+      expect(wrapper.state("sum")).toBe("4");
+      expect(wrapper.state("selected")).toBe("4");
     });
 
-    it("should calculate string in state and return sum for division", () => {
+    it("should calculate string in state and update sum state for division", () => {
       wrapper.setState({
         selected: "8/2"
       });
 
-      const result = wrapper.instance().calculate();
+      wrapper.instance().calculate();
 
-      expect(result).toBe(4);
+      expect(wrapper.state("sum")).toBe("4");
+      expect(wrapper.state("selected")).toBe("4");
     });
   });
 });
